@@ -1,0 +1,657 @@
+/* =========================================
+   1. VARIABLES & CONFIGURACIÓN GLOBAL
+   ========================================= */
+:root {
+    /* Paleta de Colores */
+    --primary-orange: #D64510;
+    --primary-hover: #b5380b;
+    --accent-yellow: #FFC107; /* Ajustado al amarillo de la imagen */
+    
+    /* Fondos */
+    --bg-body: #0F1115;       /* Fondo principal */
+    --bg-card: #0a0a0a;       /* Fondo tarjetas (más oscuro para contraste) */
+    --bg-overlay: rgba(15, 17, 21, 0.85);
+    
+    /* Texto & Bordes */
+    --text-white: #ffffff;
+    --text-grey: #a0a0a0;
+    --border-color: rgba(255, 255, 255, 0.08);
+    
+    /* Efectos */
+    --shadow-glow: 0 0 20px rgba(214, 69, 16, 0.15);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Tipografía */
+    --font-main: 'Poppins', sans-serif;
+    --navbar-height: 80px;
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-body);
+    color: var(--text-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+    margin: 0;
+    -webkit-font-smoothing: antialiased; /* Texto más nítido en modo oscuro */
+}
+
+/* Utilidades de Texto y Fondo */
+.text-orange { color: var(--primary-orange) !important; }
+.text-yellow { color: var(--accent-yellow) !important; }
+.bg-orange { background-color: var(--primary-orange) !important; }
+.fw-black { font-weight: 900 !important; }
+
+/* =========================================
+   2. COMPONENTES DE UI (Botones, Badges)
+   ========================================= */
+
+/* Botón Principal (Naranja) */
+.btn-primary-custom {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    color: white;
+    box-shadow: 0 8px 20px rgba(214, 69, 16, 0.4); /* Glow naranja al hover */
+}
+
+/* Botón Borde (Outline) */
+.btn-outline-custom {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-outline-custom:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.05);
+}
+
+/* Badges Flotantes (Tiempo/Rating) */
+.floating-badge {
+    position: absolute;
+    background: rgba(31, 36, 43, 0.9);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 16px;
+    width: auto;
+    min-width: 140px;
+    box-shadow: var(--shadow-card);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================================
+   3. NAVBAR
+   ========================================= */
+.navbar {
+    background: rgba(15, 17, 21, 0.95); /* Coherente con el bg-body */
+    backdrop-filter: blur(12px);
+    transition: var(--transition-smooth);
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+    background: rgba(15, 17, 21, 0.98);
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+}
+
+.navbar-brand img {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.05) rotate(-5deg);
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+/* Efecto de subrayado animado */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-orange);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: white !important;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+/* =========================================
+   4. SECCIÓN HERO
+   ========================================= */
+.hero {
+    position: relative;
+    min-height: 90vh; /* Usamos vh para compatibilidad, svh si quieres exactitud moderna */
+    display: flex;
+    align-items: center;
+    /* Gradiente mejorado para legibilidad del texto */
+    background: linear-gradient(90deg, #0F1115 15%, rgba(15, 17, 21, 0.9) 50%, rgba(15, 17, 21, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=2500&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    padding-top: var(--navbar-height);
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+/* =========================================
+   5. CARACTERÍSTICAS (FEATURES)
+   ========================================= */
+/* Estilo unificado y limpio */
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2.5rem 1.5rem;
+    height: 100%;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Sombra suave */
+}
+
+/* Tarjeta Destacada (Amarilla) */
+.feature-card.highlight {
+    border-color: var(--accent-yellow);
+    background: linear-gradient(145deg, rgba(255, 193, 7, 0.05) 0%, rgba(10, 10, 10, 1) 100%);
+}
+
+.feature-card.highlight:hover {
+    box-shadow: 0 15px 30px rgba(255, 193, 7, 0.1);
+}
+
+.icon-box-sm {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-orange);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 15px rgba(214, 69, 16, 0.3); /* Glow interno del icono */
+    color: white;
+}
+
+/* Variante amarilla para el icono destacado */
+.feature-card.highlight .icon-box-sm.bg-orange {
+    background-color: var(--primary-orange); /* Se mantiene naranja según diseño, o cambiar si se desea */
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: white;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-grey);
+    margin: 0;
+}
+
+/* =========================================
+   2. COMPONENTES COMPARTIDOS (Index & Menu)
+   ========================================= */
+
+/* --- Tarjetas de Menú (.menu-card) --- */
+/* Se asegura que funcionen igual en el home y en la página de menú */
+.menu-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    border: 1px solid transparent;
+    display: flex;         /* Flexbox para alinear contenido */
+    flex-direction: column; /* Verticalmente */
+    height: 100%;          /* Ocupar toda la altura de la columna */
+    position: relative;
+}
+
+.menu-card:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Contenedor de imagen */
+.menu-img-container {
+    height: 220px; /* Altura fija para uniformidad */
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Evita que la imagen se deforme */
+    transition: transform 0.6s ease;
+}
+
+.menu-card:hover .menu-img {
+    transform: scale(1.08);
+}
+
+/* Cuerpo de la tarjeta */
+.menu-body {
+    padding: 1.5rem;
+    flex-grow: 1; /* Empuja el contenido para llenar espacio vacío */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Texto de precio y botón al final */
+.menu-body .btn {
+    margin-top: auto; /* Empuja el botón siempre al fondo */
+}
+
+.price-text {
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+}
+
+/* Badges (Etiquetas flotantes) */
+/* --- Badges / Etiquetas Flotantes --- */
+.tag-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;  /* CORRECCIÓN: Alineado a la izquierda como en las fotos */
+    right: auto; /* Asegura que no se pegue a la derecha */
+    
+    display: inline-flex; /* Hace que el ancho se ajuste al texto */
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* Espacio entre el icono y el texto */
+    
+    padding: 8px 16px; /* Más relleno para que parezca botón/píldora */
+    border-radius: 50px;
+    
+    /* Estilo por defecto (Azul "Preparado en Casa" de la imagen 2) */
+    background-color: #0d6efd; 
+    color: white;
+    
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
+    z-index: 5;
+    border: none; /* Eliminamos el borde transparente para un look más limpio */
+}
+
+/* Variante Naranja (Como la etiqueta "Clásica" de la imagen 3) */
+.tag-badge.premium {
+    background-color: var(--primary-orange); /* Usa tu variable naranja (#D64510) */
+    color: white;
+}
+
+/* Variante Oscura (Si quieres mantener la opción transparente) */
+.tag-badge.dark {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+/* Botón "Order" pequeño */
+.btn-sm-order {
+    padding: 8px 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+/* Estilo específico para botones deshabilitados (Próximamente) */
+.btn-sm-order:disabled {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-grey);
+    background: transparent;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   3. ESTILOS ESPECÍFICOS: PÁGINA MENÚ (menu.html)
+   ========================================= */
+
+/* Header específico del menú (No afecta al Index) */
+.menu-header {
+    background: linear-gradient(to bottom, var(--bg-body) 0%, rgba(15, 17, 21, 0.7) 50%, var(--bg-body) 100%),
+                url('https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh; /* Altura más grande para la página dedicada */
+    margin-top: 0;
+    position: relative;
+}
+
+/* Navegación por Pestañas (Tabs) */
+.nav-pills .nav-link {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-grey);
+    border: 1px solid var(--border-color);
+    transition: var(--transition-smooth);
+    margin: 0 5px; /* Espaciado entre botones en móvil */
+}
+
+.nav-pills .nav-link:hover {
+    color: white;
+    border-color: var(--primary-orange);
+    background-color: rgba(214, 69, 16, 0.1);
+}
+
+.nav-pills .nav-link.active {
+    background-color: var(--primary-orange) !important;
+    color: white !important;
+    border-color: var(--primary-orange) !important;
+    box-shadow: 0 4px 15px rgba(214, 69, 16, 0.3);
+}
+
+/* Ajustes Responsive para Tabs */
+@media (max-width: 768px) {
+    .nav-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px; /* Espacio para scrollbar si aparece */
+        justify-content: flex-start !important; /* Alineación a la izquierda en móvil */
+    }
+    .nav-pills .nav-link {
+        white-space: nowrap; /* Evita que el texto se rompa */
+    }
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+footer {
+    background-color: #050607; /* Casi negro absoluto */
+    border-top: 1px solid var(--border-color);
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    color: var(--text-grey);
+}
+
+footer h5 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    margin-bottom: 0.8rem;
+}
+
+footer a {
+    color: var(--text-grey);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+footer a:hover {
+    color: var(--primary-orange);
+    padding-left: 5px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    margin-right: 10px;
+    transition: var(--transition-smooth);
+}
+
+.social-icon:hover {
+    background: var(--primary-orange);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+   8. RESPONSIVE
+   ========================================= */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--bg-body);
+        padding: 20px;
+        margin-top: 15px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .nav-link::after { display: none; }
+    
+    .nav-item {
+        margin: 5px 0;
+    }
+    
+    .hero {
+        text-align: center;
+        justify-content: center;
+        padding-top: 120px;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero p {
+        margin: 0 auto 2rem auto;
+    }
+    
+    /* Asegurar 2 columnas en tablet para features */
+    .col-md-6 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col-md-6 {
+        width: 100%; /* 1 columna en móvil */
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .menu-img-container {
+        height: 200px;
+    }
+}
+
+/* --- ANIMATION UTILITIES --- */
+
+/* 1. Reveal General (Fade Up) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Feature Cards (Fade + Scale sutil) */
+.reveal-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accesibilidad: Desactiva animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Contenedor de la Imagen "Full Height" */
+.quality-img-wrapper {
+    position: relative;
+    border-radius: 24px; /* Bordes más redondeados para estética moderna */
+    overflow: hidden;
+    min-height: 400px; /* Altura mínima para asegurar visibilidad en móviles */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Imagen que cubre todo el espacio disponible */
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen para llenar sin deformar */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto Zoom sutil al pasar el mouse */
+.quality-img-wrapper:hover .img-cover {
+    transform: scale(1.05);
+}
+
+/* Badge "Calidad Garantizada" (Estilos refinados) */
+.quality-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 16px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    line-height: 1.2;
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Badge "Preparado en Casa" (Arriba izquierda) */
+.tag-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: var(--primary-orange); /* O azul según tu imagen */
+    color: white;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 991px) {
+    .quality-img-wrapper {
+        min-height: 300px; /* Un poco menos alto en tablets/móviles */
+        margin-bottom: 2rem;
+    }
+}

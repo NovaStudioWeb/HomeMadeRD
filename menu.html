@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Menú | Home Made RD - Sabor Sin Límites</title>
+    <meta
+      name="description"
+      content="Menú completo de Home Made RD: Hamburguesas smash gourmet, especialidades como hotdogs, conos de carne y yaroa. Sabores auténticos y frescos en Santo Domingo."
+    />
+    <meta
+      name="keywords"
+      content="menú, hamburguesas, hotdogs, conos de carne, yaroa, comida gourmet, República Dominicana, street food, Home Made RD"
+    />
+
+    <meta property="og:title" content="Menú | Home Made RD" />
+    <meta
+      property="og:description"
+      content="Descubre nuestro menú: Hamburguesas artesanales, especialidades y yaroa. Sabor sin límites con ingredientes frescos."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop"
+    />
+    <meta property="og:url" content="https://tu-sitio-web.com/menu.html" />
+    <meta property="og:type" content="website" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <a href="#main-content" class="visually-hidden-focusable">
+      Saltar al contenido principal
+    </a>
+
+    <div id="header-container"></div>
+
+    <main id="main-content">
+      <header
+        class="menu-header d-flex align-items-center justify-content-center text-center pt-5 bg-dark"
+      >
+        <div class="container mt-5 py-5">
+          <p class="text-yellow fw-bold small text-uppercase mb-2 reveal">
+            NUESTRA CARTA
+          </p>
+          <h1 class="display-3 fw-bold text-white mb-3 reveal">
+            Menú <span class="text-orange">Home Made RD</span>
+          </h1>
+          <h2 class="h3 fw-bold text-white reveal">
+            Sabor <span class="text-orange">Sin Límites</span>
+          </h2>
+        </div>
+      </header>
+
+      <section class="py-5 bg-black">
+        <div class="container">
+          
+          <nav class="mb-5 reveal" aria-label="Categorías del menú">
+            <ul
+              class="nav nav-pills justify-content-center gap-3"
+              id="menuTabs"
+              role="tablist"
+            >
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active rounded-pill px-4 py-2 fw-bold"
+                  id="all-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#all"
+                  type="button"
+                  role="tab"
+                  aria-controls="all"
+                  aria-selected="true"
+                >
+                  🍽️ Menú Completo
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link rounded-pill px-4 py-2 fw-bold"
+                  id="burgers-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#burgers"
+                  type="button"
+                  role="tab"
+                  aria-controls="burgers"
+                  aria-selected="false"
+                >
+                  🍔 Hamburguesas
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link rounded-pill px-4 py-2 fw-bold"
+                  id="sides-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#sides"
+                  type="button"
+                  role="tab"
+                  aria-controls="sides"
+                  aria-selected="false"
+                >
+                  🌭 Especialidades
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link rounded-pill px-4 py-2 fw-bold"
+                  id="yaroa-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#yaroa"
+                  type="button"
+                  role="tab"
+                  aria-controls="yaroa"
+                  aria-selected="false"
+                >
+                  🍟 Yaroa
+                </button>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="tab-content reveal" id="menuTabsContent">
+            
+            <div
+              class="tab-pane fade show active"
+              id="all"
+              role="tabpanel"
+              aria-labelledby="all-tab"
+            >
+              <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="tag-badge">
+                      <i class="fas fa-star me-1" aria-hidden="true"></i> Clásica
+                    </div>
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Hamburguesa artesanal con carne artesanal y huevo"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Hamburguesa Artesanal</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Lechuga, tomate, queso, carne 100% artesanal y huevo.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Hotdog con repollo, queso y maíz"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Hotdog</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Salchicha, repollo, queso fundido y maíz.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Conitos rellenos de carne molida"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Conos de Carne</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Conitos tostados rellenos de carne molida cubiertos con queso fundido.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="tag-badge premium" aria-label="Popular">
+                      Popular
+                    </div>
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Yaroa con papas fritas y carne molida"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Yaroa</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Papas fritas, carne molida y queso fundido.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="burgers"
+              role="tabpanel"
+              aria-labelledby="burgers-tab"
+            >
+              <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="tag-badge">
+                      <i class="fas fa-star me-1" aria-hidden="true"></i> Clásica
+                    </div>
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Hamburguesa artesanal"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Hamburguesa Artesanal</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Lechuga, tomate, queso, carne 100% artesanal y huevo.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="sides"
+              role="tabpanel"
+              aria-labelledby="sides-tab"
+            >
+              <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Hotdog"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Hotdog</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Salchicha, repollo, queso fundido y maíz.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Conos de Carne"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Conos de Carne</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Conitos tostados rellenos de carne molida cubiertos con queso fundido.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade"
+              id="yaroa"
+              role="tabpanel"
+              aria-labelledby="yaroa-tab"
+            >
+              <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                  <article class="menu-card h-100">
+                    <div class="tag-badge premium" aria-label="Popular">
+                      Popular
+                    </div>
+                    <div class="menu-img-container">
+                      <img
+                        src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800"
+                        class="menu-img"
+                        alt="Yaroa"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="menu-body p-4">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h3 class="h5 fw-bold text-white mb-0">Yaroa</h3>
+                        <span class="price-text text-yellow fw-bold">RD$---</span>
+                      </div>
+                      <p class="text-grey small mb-4">
+                        Papas fritas, carne molida y queso fundido.
+                      </p>
+                      <button class="btn btn-sm-order w-100 btn-outline-secondary" disabled>
+                        Próximamente
+                      </button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
