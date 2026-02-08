@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Hamburguesa Artesanal",
+    "category": "burgers",
+    "price": 350,
+    "description": "Lechuga, tomate, queso, carne 100% artesanal y huevo.",
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "featured": true,
+    "popular": true
+  },
+  {
+    "id": 2,
+    "name": "Hotdog Gourmet",
+    "category": "hotdogs",
+    "price": 200,
+    "description": "Salchicha, repollo, queso fundido y maíz.",
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "featured": true,
+    "popular": false
+  },
+  {
+    "id": 3,
+    "name": "Yaroa Tradicional",
+    "category": "yaroas",
+    "price": 400,
+    "description": "Papas fritas, carne molida y queso fundido.",
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "featured": true,
+    "popular": true
+  },
+  {
+    "id": 4,
+    "name": "Conos de Carne",
+    "category": "conos",
+    "price": 400,
+    "description": "Conitos tostados rellenos de carne molida cubiertos con queso fundido.",
+    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "featured": true,
+    "popular": true
+  }
+]

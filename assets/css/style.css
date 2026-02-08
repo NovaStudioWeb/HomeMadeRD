@@ -655,3 +655,63 @@ footer a:hover {
         margin-bottom: 2rem;
     }
 }
+
+/* Estilo para los círculos de pasos (1, 2, 3) */
+.step-circle {
+    /* Dimensiones y forma */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* Flexbox para centrar el número perfectamente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Colores y Fondo: Degradado urbano de amarillo a naranja */
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    color: #1a1a1a; /* Color oscuro para el número (contraste) */
+    
+    /* Tipografía */
+    font-weight: 800;
+    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Espaciado y Layout */
+    margin-right: 1.5rem; /* Separación del texto */
+    flex-shrink: 0; /* CRUCIAL: Evita que el círculo se aplaste en celulares */
+    
+    /* Efectos Visuales (El toque "Gourmet/Street") */
+    box-shadow: 0 0 20px rgba(253, 126, 20, 0.4); /* Resplandor naranja */
+    border: 3px solid rgba(255, 255, 255, 0.1); /* Borde sutil para profundidad */
+    
+    /* Animación suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto Hover: Al pasar el mouse, el número "salta" un poco */
+.step-circle:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(253, 126, 20, 0.6);
+    cursor: default;
+}
+
+/* (Opcional) Línea conectora visual para pantallas grandes */
+@media (min-width: 992px) {
+    .step-circle {
+        position: relative;
+    }
+    /* Esto crea una línea sutil que conecta los pasos verticalmente */
+    .d-flex:not(:last-child) .step-circle::after {
+        content: '';
+        position: absolute;
+        top: 60px; /* Justo debajo del círculo */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 40px; /* Largo de la línea hacia el siguiente paso */
+        background: linear-gradient(to bottom, #fd7e14, transparent);
+        opacity: 0.3;
+        z-index: 0;
+    }
+}
