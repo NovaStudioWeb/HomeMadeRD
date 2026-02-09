@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contacto | Home Made RD - Hablemos</title>
+    <meta
+      name="description"
+      content="Contáctanos para pedidos, eventos o dudas. Home Made RD: Las mejores Smash Burgers de Santo Domingo Este."
+    />
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <div id="header-container"></div>
+
+    <main id="main-content">
+      <header
+        class="menu-header d-flex align-items-center justify-content-center text-center pt-5 bg-dark"
+        style="min-height: 40vh; background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200'); background-size: cover; background-position: center;"
+      >
+        <div class="container mt-5  pt-5">
+          <p class="text-yellow fw-bold small text-uppercase mb-2 reveal">
+            ESTAMOS CERCA DE TI
+          </p>
+          <h1 class="display-3 fw-bold text-white mb-3 reveal">
+            Hablemos <span class="text-orange">Claro</span>
+          </h1>
+          <p class="lead text-grey reveal">
+            ¿Tienes hambre? ¿Dudas? ¿Un evento? Escríbenos.
+          </p>
+        </div>
+      </header>
+
+      <section class="py-5 bg-black">
+        <div class="container py-lg-4 reveal">
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+              <div class="feature-card text-center h-100 p-4">
+                <div class="icon-box-sm bg-success mx-auto mb-3 text-white" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3 class="h5 fw-bold text-white">Pedidos Rápidos</h3>
+                <p class="text-grey small">
+                  La forma más rápida de comer es escribirnos directo.
+                </p>
+                <a href="https://wa.me/18090000000" class="text-warning fw-bold text-decoration-none">
+                  +1 (809) 000-0000 <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-card text-center h-100 p-4">
+                <div class="icon-box-sm bg-orange mx-auto mb-3 text-white" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3 class="h5 fw-bold text-white">Ubicación</h3>
+                <p class="text-grey small">
+                  Santo Domingo Este,<br>República Dominicana.
+                </p>
+                <a href="#mapa" class="text-warning fw-bold text-decoration-none">
+                  Ver en Mapa <i class="fas fa-arrow-down ms-1"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="feature-card text-center h-100 p-4">
+                <div class="icon-box-sm bg-primary mx-auto mb-3 text-white" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="h5 fw-bold text-white">Horarios</h3>
+                <p class="text-grey small mb-1">Lun - Jue: 11:00AM - 23:00PM</p>
+                <p class="text-grey small">Vie - Dom: 12:00PM - 01:00AM</p>
+                <span class="badge bg-success mt-2">Abierto Ahora</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5 bg-dark-alt" id="contacto">
+        <div class="container reveal">
+          <div class="row g-5 align-items-center">
+            
+            <div class="col-lg-6">
+              <h2 class="fw-bold display-6 text-white mb-4">
+                Envíanos un <span class="text-orange">Mensaje</span>
+              </h2>
+              <p class="text-grey mb-4">
+                Si tienes sugerencias o quieres cotizar un evento privado, llena este formulario. Te responderemos al correo.
+              </p>
+              
+              <form action="https://formspree.io/f/TU_FORMSPREE_ID" method="POST">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label text-white small fw-bold">Nombre Completo</label>
+                  <input type="text" class="form-control bg-dark border-secondary text-white p-3" id="nombre" name="name" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label text-white small fw-bold">Correo Electrónico</label>
+                  <input type="email" class="form-control bg-dark border-secondary text-white p-3" id="email" name="_replyto" placeholder="nombre@ejemplo.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="mensaje" class="form-label text-white small fw-bold">Tu Mensaje</label>
+                  <textarea class="form-control bg-dark border-secondary text-white p-3" id="mensaje" name="message" rows="5" placeholder="Cuéntanos..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary-custom w-100 py-3 fw-bold">
+                  Enviar Mensaje <i class="fas fa-paper-plane ms-2"></i>
+                </button>
+              </form>
+            </div>
+
+            <div class="col-lg-6" id="mapa">
+              <div class="map-container rounded-4 overflow-hidden border border-secondary shadow-lg" style="height: 500px;">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60598.87569766696!2d-69.87978508754668!3d18.4801869389811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf887955555555%3A0x5555555555555555!2sSanto%20Domingo%20Este!5e0!3m2!1ses!2sdo!4v1707480000000!5m2!1ses!2sdo" 
+                  width="100%" 
+                  height="100%" 
+                  style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      defer
+    ></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
