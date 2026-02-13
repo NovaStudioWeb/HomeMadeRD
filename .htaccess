@@ -1,0 +1,41 @@
+# 1. Configuración de página de error personalizada
+ErrorDocument 404 /404.html
+
+# 2. Habilitar el motor de reescritura (Rewrite Engine)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Forzar HTTPS (Seguridad)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Eliminar la extensión .html de la URL (URLs limpias)
+    # Ejemplo: permite acceder a /menu en lugar de /menu.html
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 3. Seguridad: Evitar que la gente vea tus carpetas (assets, css, etc.)
+Options -Indexes
+
+# 4. Optimización de Caché (Browser Caching)
+# Hace que el navegador guarde imágenes y estilos para cargar más rápido la próxima vez
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes: 1 año
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # CSS y JS: 1 mes
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    
+    # HTML: 0 segundos (para que siempre vean cambios recientes)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
