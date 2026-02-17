@@ -31,7 +31,8 @@ const initApp = async () => {
         ]);
 
         // 2. UI LÓGICA: Ahora que el HTML existe, inicializamos la interactividad
-        initNavbar();       // Menú móvil y efectos de scroll
+        initNavbar();  
+        initActiveLink();     // Menú móvil y efectos de scroll
         initSmoothScroll(); // Scroll suave en enlaces
         initAnimations();   // Efectos visuales (Reveal)
 
@@ -230,4 +231,33 @@ document.onkeydown = function(e) {
       (e.ctrlKey && e.keyCode == 85)) {
         return false;
     }
+}
+
+/**
+ * Marca el enlace activo en el Navbar según la página actual
+ */
+function initActiveLink() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    // Obtenemos la ruta actual (ej: "/menu.html" o "/")
+    const currentPath = window.location.pathname;
+
+    navLinks.forEach(link => {
+        // Limpiamos clases previas por si acaso
+        link.classList.remove('active');
+        link.removeAttribute('aria-current');
+
+        // Obtenemos la ruta del enlace limpio (ej: "menu.html")
+        // Usamos getAttribute para obtener lo que escribiste en el HTML
+        const href = link.getAttribute('href').replace('./', '');
+
+        // LÓGICA DE COMPARACIÓN:
+        // 1. Coincidencia Exacta: Si la URL termina con el href del enlace (ej: .../menu.html)
+        // 2. Caso Home: Si la URL es "/" o vacía, y el enlace es "index.html"
+        if ((currentPath.endsWith(href) && href !== '') || 
+            ((currentPath === '/' || currentPath.endsWith('/')) && href === 'index.html')) {
+            
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page'); // Importante para accesibilidad
+        }
+    });
 }

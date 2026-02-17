@@ -715,3 +715,89 @@ footer a:hover {
         z-index: 0;
     }
 }
+
+/* --- MEJORAS DEL HEADER --- */
+
+/* 1. Efecto Glassmorphism (Desenfoque tipo iOS) */
+.navbar-glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 2. Animación de Enlaces (Subrayado Naranja) */
+.nav-link-animated {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link-animated::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px; /* Ajustar según altura */
+    left: 50%;
+    background-color: #fd7e14; /* Tu color naranja */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link-animated:hover::after,
+.nav-link-animated.active::after {
+    width: 80%;
+}
+
+.nav-link-animated:hover {
+    color: #fff !important;
+}
+
+/* 3. Logo Hover */
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* 4. Botón Pulsante (Llama la atención sutilmente) */
+@keyframes pulse-orange {
+    0% { box-shadow: 0 0 0 0 rgba(253, 126, 20, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(253, 126, 20, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(253, 126, 20, 0); }
+}
+
+.pulsate-btn:hover {
+    animation: pulse-orange 2s infinite;
+}
+
+/* 5. Ajuste Móvil */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.95); /* Fondo más oscuro en móvil */
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Estilo para el enlace activo en el Navbar */
+.navbar-nav .nav-link.active {
+    color: #fd7e14 !important; /* Tu color Naranja */
+    font-weight: 700;          /* Negrita */
+    position: relative;
+}
+
+/* Opcional: Un punto o línea debajo del enlace activo */
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px; /* Ancho de la línea */
+    height: 3px;
+    background-color: #fd7e14;
+    border-radius: 2px;
+}
