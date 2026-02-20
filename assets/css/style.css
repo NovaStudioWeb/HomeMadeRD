@@ -867,3 +867,79 @@ footer a:hover {
         display: none; /* Ocultar tooltip en móviles para no tapar contenido */
     }
 }
+
+/* --- ANIMACIONES DE COPYRIGHT --- */
+
+/* Brillo sutil al nombre de la marca */
+.hover-glow-orange:hover {
+    color: var(--primary-orange) !important;
+    text-shadow: 0 0 10px rgba(214, 69, 16, 0.4);
+    cursor: default;
+}
+
+/* Efecto para tu marca Nova Studio Web */
+.nova-link {
+    transition: var(--transition-smooth);
+}
+
+.nova-link:hover {
+    color: #fff !important;
+    letter-spacing: 0.5px;
+}
+
+/* Enlaces Legales: Línea animada inferior */
+.legal-link {
+    color: var(--text-grey);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: var(--transition-smooth);
+}
+
+.legal-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-orange);
+    transition: width 0.3s ease;
+}
+
+.legal-link:hover {
+    color: var(--primary-orange) !important;
+}
+
+.legal-link:hover::after {
+    width: 100%;
+}
+
+/* Ajuste de transición global si no la tienes */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+
+/* --- CTA WHATSAPP SECTION --- */
+.bg-orange {
+    background-color: var(--primary-orange) !important;
+}
+
+.fw-black {
+    font-weight: 900 !important;
+}
+
+/* Variación del botón pulsante para fondo naranja */
+@keyframes pulse-dark {
+    0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+.pulsate-btn-dark:hover {
+    animation: pulse-dark 2s infinite;
+    background-color: #000 !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}

@@ -66,7 +66,10 @@ const loadComponent = async (selector, url) => {
    ========================================= */
 const loadMenuSystem = () => {
     fetch(CONFIG.PATHS.menuData)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) throw new Error("No se pudo leer el archivo JSON");
+            return response.json();
+        })
         .then(data => {
             // A. Lógica para INDEX.HTML (Solo destacados)
             const featuredContainer = document.getElementById("featured-menu-container");
@@ -91,16 +94,28 @@ const loadMenuSystem = () => {
             const yaroaContainer = document.getElementById("menu-container-yaroa");
             if (yaroaContainer) renderMenu(data.filter(i => i.category === "yaroas"), yaroaContainer);
         })
-        .catch(error => console.error("Error cargando el menú JSON:", error));
+        .catch(error => {
+            console.error("Error cargando el menú JSON:", error);
+            // Mensaje de error visual para el usuario si falla el JSON
+            const allContainer = document.getElementById("menu-container-all");
+            if (allContainer) {
+                 allContainer.innerHTML = '<div class="col-12 text-center text-white"><p>Error al cargar el menú. Por favor, recarga la página.</p></div>';
+            }
+        });
 };
 
 function renderMenu(items, container) {
+    if (!container) return; // Protección contra errores
+    
     container.innerHTML = ""; // Limpiar spinner de carga
 
     if (items.length === 0) {
         container.innerHTML = '<div class="col-12 text-center text-white"><p>No hay productos en esta categoría.</p></div>';
         return;
     }
+
+    // FIX MEJORA: Construimos todo el HTML en una variable primero (Mejor rendimiento)
+    let finalHTML = "";
 
     items.forEach((item) => {
         // Mensaje de WhatsApp Pre-configurado
@@ -133,8 +148,11 @@ function renderMenu(items, container) {
                 </article>
             </div>
         `;
-        container.innerHTML += cardHTML;
+        finalHTML += cardHTML; // Agregamos al string temporal
     });
+    
+    // FIX MEJORA: Insertamos todo el HTML de golpe al final (Evita cuelgues del navegador)
+    container.innerHTML = finalHTML;
 }
 
 /* =========================================
@@ -160,15 +178,20 @@ function initNavbar() {
     
     // Verificamos si bootstrap está disponible para colapsar el menú
     if (navbarCollapse && typeof bootstrap !== 'undefined') {
-        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navbarCollapse.classList.contains('show')) {
-                    bsCollapse.hide();
-                }
+        // Encerramos en Try-Catch por si hay problemas de inicialización en pestañas específicas
+        try {
+            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        bsCollapse.hide();
+                    }
+                });
             });
-        });
+        } catch (e) {
+            console.log("Navbar collapse initialization skipped", e);
+        }
     }
 }
 
@@ -202,17 +225,22 @@ function initSmoothScroll() {
         // Evitamos error si el enlace apunta a otra página (ej: index.html#menu)
         if (targetId.includes('.html')) return; 
 
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            e.preventDefault();
-            const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+        // FIX: Protección contra selectores inválidos que rompen el JS
+        try {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        } catch(error) {
+             // Silenciamos errores de querySelector inválidos
         }
     });
 }
@@ -242,17 +270,17 @@ function initActiveLink() {
     const currentPath = window.location.pathname;
 
     navLinks.forEach(link => {
+        // Obtenemos el atributo href real. Protegemos si el link no tiene href
+        const hrefAttr = link.getAttribute('href');
+        if(!hrefAttr) return;
+
         // Limpiamos clases previas por si acaso
         link.classList.remove('active');
         link.removeAttribute('aria-current');
 
-        // Obtenemos la ruta del enlace limpio (ej: "menu.html")
-        // Usamos getAttribute para obtener lo que escribiste en el HTML
-        const href = link.getAttribute('href').replace('./', '');
+        const href = hrefAttr.replace('./', '');
 
         // LÓGICA DE COMPARACIÓN:
-        // 1. Coincidencia Exacta: Si la URL termina con el href del enlace (ej: .../menu.html)
-        // 2. Caso Home: Si la URL es "/" o vacía, y el enlace es "index.html"
         if ((currentPath.endsWith(href) && href !== '') || 
             ((currentPath === '/' || currentPath.endsWith('/')) && href === 'index.html')) {
             
