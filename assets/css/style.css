@@ -801,3 +801,69 @@ footer a:hover {
     background-color: #fd7e14;
     border-radius: 2px;
 }
+
+/* --- BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at 30% 30%, #25d366, #128c7e); /* Degradado verde WhatsApp */
+    color: #fff !important;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5), 
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto al pasar el mouse */
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.8);
+    color: #fff;
+}
+
+/* Tooltip (Pequeño texto informativo) */
+.tooltip-text {
+    position: absolute;
+    right: 75px;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    border: 1px solid var(--primary-orange);
+}
+
+.whatsapp-float:hover .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+    .tooltip-text {
+        display: none; /* Ocultar tooltip en móviles para no tapar contenido */
+    }
+}
