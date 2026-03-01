@@ -5,7 +5,7 @@
     "category": "burgers",
     "price": 350,
     "description": "Lechuga, tomate, queso, carne 100% artesanal y huevo.",
-    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "image": "./assets/img/menu/hamb.avif",
     "featured": true,
     "popular": true
   },
@@ -15,7 +15,7 @@
     "category": "hotdogs",
     "price": 200,
     "description": "Salchicha, repollo, queso fundido y maíz.",
-    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "image": "./assets/img/menu/hotdog.avif",
     "featured": true,
     "popular": false
   },
@@ -25,7 +25,7 @@
     "category": "yaroas",
     "price": 400,
     "description": "Papas fritas, carne molida y queso fundido.",
-    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "image": "./assets/img/menu/papas.avif",
     "featured": true,
     "popular": true
   },
@@ -35,7 +35,7 @@
     "category": "conos",
     "price": 400,
     "description": "Conitos tostados rellenos de carne molida cubiertos con queso fundido.",
-    "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?q=80&w=800",
+    "image": "./assets/img/menu/conos.avif",    
     "featured": true,
     "popular": true
   }

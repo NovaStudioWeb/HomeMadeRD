@@ -6,7 +6,7 @@
     
     <meta name="theme-color" content="#1a1a1a" />
 
-    <title>Menú | Home Made RD - Sabor Sin Límites</title>
+    <title>Inicio | Home Made RD - Sabor Sin Límites</title>
     
     <meta
       name="description"
@@ -80,6 +80,55 @@
 
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/page.css" />
+
+    <style>
+      /* Reveal mucho más suave y premium */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Animación Pulsante para botones principales */
+      @keyframes pulse-soft {
+        0% { box-shadow: 0 0 0 0 rgba(214, 69, 16, 0.5); }
+        70% { box-shadow: 0 0 0 10px rgba(214, 69, 16, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(214, 69, 16, 0); }
+      }
+      .btn-pulse {
+        animation: pulse-soft 2s infinite;
+      }
+
+      /* Botón Flotante de WhatsApp */
+      .wa-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #25D366;
+        color: #fff;
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        z-index: 1050;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .wa-float:hover {
+        background-color: #1ebe57;
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.6);
+      }
+    </style>
   </head>
   <body>
     <a href="#main-content" class="visually-hidden-focusable"
@@ -89,27 +138,27 @@
     <div id="header-container"></div>
 
     <main id="main-content">
-      <header class="hero mt-5">
-        <div class="container reveal">
+      <header class="hero pt-5" style="background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.95)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1920&auto=format&fit=crop') center/cover;">
+        <div class="container py-5 mt-5 reveal">
           <div class="row align-items-center">
             <div class="col-lg-7">
-              <div class="badge-custom mb-4" role="text">
-                <i class="fas fa-fire" aria-hidden="true"></i> Experiencia
+              <div class="badge-custom mb-4 px-3 py-2" role="text">
+                <i class="fas fa-fire text-orange" aria-hidden="true"></i> Experiencia
                 Gourmet Urbana
               </div>
-              <h1 class="mb-4 text-uppercase fw-bold">
+              <h1 class="mb-4 text-uppercase fw-bold display-4">
                 Lo mejor de la comida <span class="text-yellow">Callejera</span><br />
                 con un toque <span class="text-orange">Artesanal</span> 
               </h1>
-              <p class="lead text-grey mb-5 hero-text">
+              <p class="lead text-grey mb-5 hero-text fw-light">
                 Smash burgers gourmet inspiradas en la cultura street food.
-                Sabor auténtico, ingredientes premium y una experiencia que te
-                conecta con la noche urbana.
+                Sabor auténtico, ingredientes frescos y una experiencia que te
+                conecta directamente con la noche urbana. ¿Listo para probarla?
               </p>
               <div class="d-flex gap-3 flex-wrap">
                 <a
                   href="#pedidos"
-                  class="btn btn-primary-custom"
+                  class="btn btn-primary-custom btn-pulse px-4 py-3 fw-bold shadow-lg"
                   aria-label="Ir a la sección de pedidos"
                 >
                   <i class="fas fa-shopping-bag me-2" aria-hidden="true"></i>
@@ -118,19 +167,19 @@
                 </a>
                 <a
                   href="./menu.html"
-                  class="btn btn-outline-custom"
+                  class="btn btn-outline-custom px-4 py-3 fw-bold"
                   aria-label="Ver el menú completo"
                 >
                   <i class="fas fa-book-open me-2" aria-hidden="true"></i> Ver
                   Menú
                 </a>
               </div>
-              <div class="mt-4 text-grey small">
+              <div class="mt-4 text-grey small fw-medium">
                 <i
                   class="fas fa-truck text-yellow me-2"
                   aria-hidden="true"
                 ></i>
-                Entrega rápida desde móvil • Pedidos en minutos
+                Entrega express • Confirma tu orden en 2 minutos
               </div>
             </div>
           </div>
@@ -141,63 +190,60 @@
         <div class="container py-5 reveal">
           <div class="text-center mb-5">
             <p class="text-orange fw-bold small text-uppercase mb-2">
-              POR QUÉ HOME MADE RD
+              POR QUÉ ELEGIRNOS
             </p>
             <h2 class="fw-bold display-5 text-white">
-              Más Que Una Hamburguesa,
-              <span class="text-orange">Una Experiencia</span>
+              Más Que Una Hamburguesa,<br>
+              <span class="text-orange">Una Experiencia Real</span>
             </h2>
-            <p class="text-grey mx-auto" style="max-width: 700px">
+            <p class="text-grey mx-auto mt-3 fs-5" style="max-width: 700px">
               Diseñamos cada burger para destacar en sabor, calidad y estética.
-              Street food elevado al siguiente nivel.
+              El street food llevado al siguiente nivel con ingredientes que hablan por sí solos.
             </p>
           </div>
 
           <div class="row g-4">
             <div class="col-lg-3 col-md-6">
-              <article class="feature-card">
-                <div class="icon-box-sm" aria-hidden="true">
-                  <i class="fas fa-fire text-white"></i>
+              <article class="feature-card h-100 p-4 border-0 shadow-sm rounded-4">
+                <div class="icon-box-sm mb-3" aria-hidden="true">
+                  <i class="fas fa-fire text-white fs-4"></i>
                 </div>
                 <h3 class="h5 fw-bold text-white">Técnica Smash</h3>
                 <p class="text-grey small mb-0">
-                  Costra caramelizada perfecta que atrapa los jugos y sabores.
+                  Costra caramelizada perfecta que atrapa los jugos y potencia todos los sabores.
                 </p>
               </article>
             </div>
             <div class="col-lg-3 col-md-6">
-              <article class="feature-card">
-                <div class="icon-box-sm" aria-hidden="true">
-                  <i class="fas fa-medal text-white"></i>
+              <article class="feature-card h-100 p-4 border-0 shadow-sm rounded-4">
+                <div class="icon-box-sm mb-3" aria-hidden="true">
+                  <i class="fas fa-medal text-white fs-4"></i>
                 </div>
                 <h3 class="h5 fw-bold text-white">Ingredientes Premium</h3>
                 <p class="text-grey small mb-0">
-                  Selección rigurosa de carne, panes artesanales y toppings
-                  frescos.
+                  Selección rigurosa de carne fresca, panes artesanales y toppings irresistibles.
                 </p>
               </article>
             </div>
             <div class="col-lg-3 col-md-6">
-              <article class="feature-card ">
-                <div class="icon-box-sm bg-orange" aria-hidden="true">
-                  <i class="fas fa-mobile-alt text-white"></i>
+              <article class="feature-card h-100 p-4 border-0 shadow-sm rounded-4">
+                <div class="icon-box-sm bg-orange mb-3 shadow" aria-hidden="true">
+                  <i class="fas fa-mobile-alt text-white fs-4"></i>
                 </div>
                 <h3 class="h5 fw-bold text-white">Pedido Express</h3>
                 <p class="text-grey small mb-0">
-                  Ordena en segundos y recibe tu burger caliente en tiempo
-                  récord.
+                  Habla directo con nosotros, ordena en segundos y recibe tu burger súper caliente.
                 </p>
               </article>
             </div>
             <div class="col-lg-3 col-md-6">
-              <article class="feature-card ">
-                <div class="icon-box-sm" aria-hidden="true">
-                  <i class="fas fa-city text-white"></i>
+              <article class="feature-card h-100 p-4 border-0 shadow-sm rounded-4">
+                <div class="icon-box-sm mb-3" aria-hidden="true">
+                  <i class="fas fa-city text-white fs-4"></i>
                 </div>
                 <h3 class="h5 fw-bold text-white">Espíritu Urbano</h3>
                 <p class="text-grey small mb-0">
-                  Sabores audaces para gente con personalidad inspirados en la
-                  noche.
+                  Sabores audaces creados para gente con personalidad, inspirados en la noche.
                 </p>
               </article>
             </div>
@@ -207,98 +253,95 @@
 
       <section class="py-5 bg-black">
         <div class="container reveal">
-
           <div class="row align-items-center mt-5 pt-lg-4 ">
             <div class="row g-5 align-items-stretch">
               <div class="col-lg-6">
-                <div class="quality-img-wrapper h-100">
+                <div class="quality-img-wrapper h-100 shadow-lg rounded-4 overflow-hidden position-relative">
                   <img
                     src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?q=80&w=2000&auto=format&fit=crop"
                     alt="Hamburguesa Casera Premium"
-                    class="img-cover"
+                    class="img-cover w-100 h-100 object-fit-cover"
                     loading="lazy"
                     decoding="async"
                   />
 
-                  <span class="tag-badge">
+                  <span class="tag-badge position-absolute top-0 start-0 m-3 shadow">
                     <i class="fas fa-home me-1"></i> Preparado en Casa
                   </span>
 
-                  <div class="quality-badge">
+                  <div class="quality-badge position-absolute bottom-0 end-0 m-4 text-center bg-dark p-3 rounded-circle shadow-lg border border-warning" style="width: 120px; height: 120px; display: flex; flex-direction: column; justify-content: center;">
                     <i
-                      class="fas fa-certificate text-yellow mb-1 fs-5"
+                      class="fas fa-certificate text-yellow mb-1 fs-3"
                     ></i>
-                    <span>Calidad<br />Garantizada</span>
+                    <span class="fw-bold small lh-sm">Calidad<br />Garantizada</span>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 ps-lg-4">
+              <div class="col-lg-6 ps-lg-5">
                 <p class="text-yellow fw-bold small text-uppercase mb-2">
                   <i class="fas fa-heart me-2" aria-hidden="true"></i> 100%
-                  HECHO EN CASA
+                  HECHO CON PASIÓN
                 </p>
                 <h2 class="fw-bold display-5 mb-3 text-white">
                   El Sabor Auténtico de
                   <span class="text-orange">Lo Casero</span>
                 </h2>
-                <p class="text-grey mb-4">
-                  Sin conservantes, sin atajos. Solo ingredientes frescos y ese
-                  toque hogareño que hace la diferencia.
+                <p class="text-grey mb-4 fs-6">
+                  Sin atajos ni conservantes artificiales. Nos tomamos el tiempo de hacer las cosas bien: ingredientes frescos, recetas propias y ese toque de hogar que marca la diferencia en cada mordisco.
                 </p>
 
-                <div class="feature-list">
-                  <div class="d-flex mb-4">
+                <div class="feature-list mt-5">
+                  <div class="d-flex mb-4 align-items-start">
                     <div class="flex-shrink-0 me-3">
                       <div
-                        class="icon-box-sm rounded-circle"
+                        class="icon-box-sm rounded-circle shadow"
                         aria-hidden="true"
                       >
                         <i class="fas fa-leaf text-white small"></i>
                       </div>
                     </div>
                     <div>
-                      <h3 class="h6 fw-bold text-white mb-1">
-                        Ingredientes Naturales
+                      <h3 class="h5 fw-bold text-white mb-1">
+                        Totalmente Natural
                       </h3>
                       <p class="text-grey small mb-0">
-                        Sin conservantes ni químicos artificiales.
+                        Cuidamos lo que comes. Cero químicos, mucho sabor real.
                       </p>
                     </div>
                   </div>
-                  <div class="d-flex mb-4">
+                  <div class="d-flex mb-4 align-items-start">
                     <div class="flex-shrink-0 me-3">
                       <div
-                        class="icon-box-sm rounded-circle"
+                        class="icon-box-sm rounded-circle shadow"
                         aria-hidden="true"
                       >
-                        <i class="fas fa-heartbeat text-white small"></i>
+                        <i class="fas fa-shield-alt text-white small"></i>
                       </div>
                     </div>
                     <div>
-                      <h3 class="h6 fw-bold text-white mb-1">
-                        Salud Alimentaria
+                      <h3 class="h5 fw-bold text-white mb-1">
+                        Higiene y Control
                       </h3>
                       <p class="text-grey small mb-0">
-                        Controlamos cada paso para garantizar calidad
-                        nutricional.
+                        Nuestra cocina cumple con los más altos estándares de limpieza.
                       </p>
                     </div>
                   </div>
-                  <div class="d-flex">
+                  <div class="d-flex align-items-start">
                     <div class="flex-shrink-0 me-3">
                       <div
-                        class="icon-box-sm rounded-circle"
+                        class="icon-box-sm rounded-circle shadow"
                         aria-hidden="true"
                       >
-                        <i class="fas fa-hands-helping text-white small"></i>
+                        <i class="fas fa-fire text-white small"></i>
                       </div>
                     </div>
                     <div>
-                      <h3 class="h6 fw-bold text-white mb-1">
-                        Toque Hogareño
+                      <h3 class="h5 fw-bold text-white mb-1">
+                        Directo de la Plancha
                       </h3>
                       <p class="text-grey small mb-0">
-                        Cariño y dedicación de una receta casera.
+                        No recalentamos. Cada burger se hace en el momento que la pides.
                       </p>
                     </div>
                   </div>
@@ -306,55 +349,45 @@
               </div>
             </div>
           </div>
-          <div class="quality-banner mb-5 rounded-4 p-4 p-md-5">
+          
+          <div class="quality-banner mt-5 mb-5 rounded-4 p-4 p-md-5 shadow-lg border border-secondary border-opacity-25" style="background: linear-gradient(135deg, #111, #1a1a1a);">
             <div class="row text-center align-items-center gy-4">
-              <div class="col-md-3">
-                <p class="display-4 fw-bold mb-0 text-white">0%</p>
-                <span class="fw-bold text-orange">Conservantes</span>
+              <div class="col-6 col-md-3">
+                <p class="display-5 fw-black mb-0 text-white">0%</p>
+                <span class="fw-bold text-orange small text-uppercase">Conservantes</span>
               </div>
-              <div class="col-md-3">
-                <p class="display-4 fw-bold mb-0 text-white">100%</p>
-                <span class="fw-bold text-orange">Ingredientes Frescos</span>
+              <div class="col-6 col-md-3">
+                <p class="display-5 fw-black mb-0 text-white">100%</p>
+                <span class="fw-bold text-orange small text-uppercase">Frescura</span>
               </div>
-              <div class="col-md-3">
+              <div class="col-6 col-md-3">
                 <div class="fs-1 mb-2 text-yellow" aria-hidden="true">
-                  <i class="fas fa-home"></i>
+                  <i class="fas fa-heart"></i>
                 </div>
-                <span class="fw-bold text-white">Hecho con Amor</span>
+                <span class="fw-bold text-white small text-uppercase">Hecho con Amor</span>
               </div>
-              <div class="col-md-3">
-                <p class="display-4 fw-bold mb-0 text-white">Daily</p>
-                <span class="fw-bold text-orange">Preparación Diaria</span>
+              <div class="col-6 col-md-3">
+                <div class="fs-1 mb-2 text-yellow" aria-hidden="true">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <span class="fw-bold text-white small text-uppercase">Del día</span>
               </div>
             </div>
-            <div class="text-center mt-4 pt-2">
-              <div class="text-white-50 small mb-3">
-                <i class="fas fa-sparkles text-yellow" aria-hidden="true"></i>
-                Experimenta la diferencia de lo auténticamente casero
-              </div>
-              <a
-                href="./menu.html"
-                class="btn btn-primary-custom fw-bold px-4 py-2 rounded-3"
-              >
-                Prueba Nuestra Calidad Casera
-                <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
-              </a>
-            </div>
-            </div>
+          </div>
         </div>
       </section>
 
-      <section class="py-5 bg-dark-alt" id="menu">
-        <div class="container reveal">
+      <section class="py-5 position-relative" id="menu" style="background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95)), url('https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1920&auto=format&fit=crop') center/cover; background-attachment: fixed;">
+        <div class="container py-5 reveal">
           <div class="text-center mb-5">
             <p class="text-yellow fw-bold small text-uppercase mb-2">
-              NUESTRO MENÚ
+              LO QUE NOS DEFINE
             </p>
             <h2 class="fw-bold display-5 text-white">
               Burgers Que <span class="text-orange">Rompen Esquemas</span>
             </h2>
-            <p class="text-grey">
-              Sabores intensos, combinaciones únicas y presentación impecable.
+            <p class="text-light opacity-75 fs-5">
+              Conoce las estrellas de la casa. Creadas para calmar hasta el hambre más feroz.
             </p>
           </div>
 
@@ -363,79 +396,79 @@
               <div class="spinner-border text-warning" role="status" style="width: 3rem; height: 3rem;">
                 <span class="visually-hidden">Cargando menú...</span>
               </div>
-              <p class="text-grey mt-3 small">Preparando la parrilla...</p>
+              <p class="text-white mt-3 fw-medium">Preparando la parrilla...</p>
             </div>
           </div>
 
           <div class="text-center mt-5">
             <a
               href="./menu.html"
-              class="btn btn-outline-warning rounded-pill px-5 py-3 fw-bold border-2"
+              class="btn btn-warning shadow-lg px-5 py-3 fw-bold border-0 text-dark fs-5"
             >
               Ver Menú Completo
-              <i class="fas fa-chevron-right ms-2" aria-hidden="true"></i>
+              <i class="fas fa-utensils ms-2" aria-hidden="true"></i>
             </a>
           </div>
         </div>
       </section>
 
-<section class="py-5 bg-dark-alt" id="pedidos">
+      <section class="py-5 position-relative" id="pedidos" style="background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(15, 15, 15, 0.95)), url('https://images.unsplash.com/photo-1590846406792-0adc7f138fbc?q=80&w=1920&auto=format&fit=crop') center/cover;">
         <div class="container py-lg-5 reveal">
           <div class="row align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
-              <p class="text-warning small fw-bold mb-2">
-                <i class="fab fa-whatsapp me-1"></i> PEDIDOS DIRECTOS
+              <p class="text-success small fw-bold mb-2">
+                <i class="fab fa-whatsapp me-1"></i> RESPUESTA INMEDIATA
               </p>
               <h2 class="fw-bold display-5 mb-4 text-white">
                 Tu Antojo a un <br /><span class="text-success"
                   >WhatsApp de Distancia</span
                 >
               </h2>
-              <p class="text-grey mb-5">
-                Sin apps complicadas, sin registros. Habla directo con nosotros,
-                personaliza tu orden y recibe confirmación al instante.
+              <p class="text-light opacity-75 fs-5 mb-5">
+                Olvídate de apps lentas y registros largos. Habla directo con nosotros,
+                personaliza tu orden como te gusta y recibe tu comida volando.
               </p>
 
-              <div class="d-flex mb-4">
-                <div class="step-circle" aria-hidden="true">1</div>
+              <div class="d-flex mb-4 align-items-start">
+                <div class="step-circle shadow bg-orange text-white border-0" aria-hidden="true">1</div>
                 <div>
-                  <h3 class="h5 fw-bold text-white mb-1">Chequea el Menú</h3>
+                  <h3 class="h5 fw-bold text-white mb-1">Antójate del Menú</h3>
                   <p class="text-grey small mb-0">
-                    Mira las fotos y decide qué Smash Burger te vas a comer hoy.
+                    Mira nuestras fotos y decide qué Smash Burger va a salvar tu día hoy.
                   </p>
                 </div>
               </div>
 
-              <div class="d-flex mb-4">
-                <div class="step-circle" aria-hidden="true">2</div>
+              <div class="d-flex mb-4 align-items-start">
+                <div class="step-circle shadow bg-success text-white border-0" aria-hidden="true"><i class="fab fa-whatsapp"></i></div>
                 <div>
-                  <h3 class="h5 fw-bold text-white mb-1">Escríbenos</h3>
+                  <h3 class="h5 fw-bold text-white mb-1">Manda el Mensaje</h3>
                   <p class="text-grey small mb-0">
-                    Dale al botón de WhatsApp. Dinos qué deseas ordenar y dónde estás ubicado.
+                    Dale clic al botón. Cuéntanos qué quieres, tus extras y a dónde te lo enviamos.
                   </p>
                 </div>
               </div>
 
-              <div class="d-flex mb-4">
-                <div class="step-circle" aria-hidden="true">3</div>
+              <div class="d-flex mb-4 align-items-start">
+                <div class="step-circle shadow bg-primary text-white border-0" aria-hidden="true"><i class="fas fa-motorcycle"></i></div>
                 <div>
                   <h3 class="h5 fw-bold text-white mb-1">Confirmamos y Sale</h3>
                   <p class="text-grey small mb-0">
-                    Te enviamos el total, pagas fácil y tu orden sale caliente.
+                    Te confirmamos el monto total y despachamos tu orden súper caliente.
                   </p>
                 </div>
               </div>
 
-              <div class="mt-5 d-flex gap-3">
+              <div class="mt-5 d-flex gap-3 flex-wrap">
                 <a
                   href="https://wa.me/18090000000?text=Hola%20Home%20Made%20RD,%20quisiera%20hacer%20un%20pedido..."
                   target="_blank"
-                  class="btn btn-primary-custom"
+                  class="btn btn-success btn-pulse px-4 py-3 fw-bold shadow-lg"
                 >
-                  <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>
+                  <i class="fab fa-whatsapp me-2 fs-5" aria-hidden="true"></i>
                   Chatear para Pedir
                 </a>
-                <a href="./menu.html" class="btn btn-outline-custom"
+                <a href="./menu.html" class="btn btn-outline-light px-4 py-3 fw-bold"
                   >Ver Menú Digital</a
                 >
               </div>
@@ -443,17 +476,17 @@
 
             <div class="col-lg-6 text-center position-relative">
               <div
-                class="floating-badge badge-time d-none d-lg-block shadow-sm"
+                class="floating-badge badge-time d-none d-lg-block shadow-lg bg-dark border border-secondary"
               >
                 <i
-                  class="fas fa-motorcycle text-warning mb-2"
+                  class="fas fa-motorcycle text-warning mb-2 fs-4"
                   aria-hidden="true"
                 ></i>
                 <div class="fw-bold lh-1 text-white">Fast</div>
                 <small class="text-muted">Delivery</small>
               </div>
 
-              <div class="phone-mockup mx-auto">
+              <div class="phone-mockup mx-auto shadow-lg" style="border-color: #333;">
                 <img
                   src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400"
                   class="img-fluid screen-img"
@@ -461,39 +494,37 @@
                   loading="lazy"
                   decoding="async"
                 />
-                <div class="p-3 text-start bg-dark">
-                  <h4 class="text-white h6 mb-1">
-                    <i class="fab fa-whatsapp text-success me-1"></i> Home Made
-                    RD
+                <div class="p-3 text-start" style="background-color: #075E54;">
+                  <h4 class="text-white h6 mb-1 fw-bold">
+                    <i class="fab fa-whatsapp text-white me-1"></i> Home Made RD
                   </h4>
-                  <div class="d-flex align-items-center mt-2">
+                  <div class="d-flex align-items-center mt-3">
                     <div
-                      class="bg-secondary bg-opacity-25 rounded p-2 text-white small w-100"
-                      style="border-left: 3px solid #25d366"
+                      class="rounded p-2 text-dark small w-100 shadow-sm"
+                      style="background-color: #DCF8C6; border-radius: 10px 10px 10px 0 !important;"
                     >
-                      <span class="text-warning fw-bold">Yo:</span> Hola, quiero
-                      2 Classic Smash con extra bacon 🥓
+                      <span class="text-success fw-bold">Tú:</span> ¡Hola! Quiero 2 Classic Smash, pero con extra bacon por favor 🥓🔥
                     </div>
                   </div>
                   <a
                     href="https://wa.me/18090000000"
                     target="_blank"
-                    class="btn btn-success w-100 mt-3 btn-sm fw-bold text-white"
+                    class="btn btn-light w-100 mt-4 btn-sm fw-bold text-success shadow"
                   >
-                    Enviar Mensaje <i class="fas fa-paper-plane ms-2"></i>
+                    Hacer Pedido Real <i class="fas fa-paper-plane ms-2"></i>
                   </a>
                 </div>
               </div>
 
               <div
-                class="floating-badge badge-rating d-none d-lg-block shadow-sm"
+                class="floating-badge badge-rating d-none d-lg-block shadow-lg bg-dark border border-secondary"
               >
                 <i
-                  class="fas fa-smile-beam text-warning mb-2"
+                  class="fas fa-star text-warning mb-2 fs-4"
                   aria-hidden="true"
                 ></i>
-                <div class="fw-bold lh-1 text-white">100%</div>
-                <small class="text-muted">Atención</small>
+                <div class="fw-bold lh-1 text-white">5.0</div>
+                <small class="text-muted">Estrellas</small>
               </div>
             </div>
           </div>
@@ -502,6 +533,15 @@
     </main>
 
     <div id="footer-container"></div>
+
+    <a href="https://wa.me/18090000000?text=¡Hola!%20Vengo%20de%20la%20web%20y%20tengo%20un%20antojo%20gigante%20🍔" 
+       class="wa-float" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       aria-label="Chatear directo por WhatsApp">
+      <i class="fab fa-whatsapp fs-3"></i>
+      <span class="d-none d-md-inline">¡Pide aquí!</span>
+    </a>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
